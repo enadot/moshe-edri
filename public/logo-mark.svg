@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="goldGradMark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F5D376"/>
+      <stop offset="0.55" stop-color="#D4AF37"/>
+      <stop offset="1" stop-color="#B08920"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="14" fill="url(#goldGradMark)"/>
+  <path d="M14 36 L14 14 L22 14 L24 26 L26 14 L34 14 L34 36 L29 36 L29 21 L26 33 L22 33 L19 21 L19 36 Z" fill="#0a192f"/>
+</svg>

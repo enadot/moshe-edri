@@ -23,10 +23,14 @@ export function HeroGsap({ children }: { children: React.ReactNode }) {
       tl.from(".hero-badge", { opacity: 0, y: 12 }, 0)
         .from(".hero-headline", { opacity: 0, y: 24 }, 0.1)
         .from(".hero-sub", { opacity: 0, y: 16 }, 0.25)
-        .from(".hero-cta", { opacity: 0, y: 16 }, 0.4)
-        .from(".hero-trust", { opacity: 0, y: 12 }, 0.5)
-        .from(".hero-stats > *", { opacity: 0, y: 20, stagger: 0.08 }, 0.55)
-        .from(".hero-form", { opacity: 0, y: 24, duration: 0.9 }, 0.2);
+        .from(
+          ".hero-portrait",
+          { opacity: 0, y: 32, scale: 0.96, duration: 1 },
+          0.2
+        )
+        .from(".hero-cta", { opacity: 0, y: 16 }, 0.55)
+        .from(".hero-trust", { opacity: 0, y: 12 }, 0.65)
+        .from(".hero-stats > *", { opacity: 0, y: 20, stagger: 0.08 }, 0.7);
 
       gsap.to(".hero-orb", {
         scale: 1.15,

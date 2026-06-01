@@ -9,6 +9,9 @@ export const SITE_CONFIG = {
   whatsappMessage:
     "היי, אשמח לקבל פרטים על ייעוץ המשכנתאות של משה אדרי",
   email: "info@mosheadri.co.il",
+  logo: "/logo.svg",
+  logoMark: "/logo-mark.svg",
+  portrait: "/moshe-portrait.svg",
   founder: {
     name: "משה אדרי",
     title: "יועץ משכנתאות מומחה",

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SITE_CONFIG, NAV_ITEMS } from "@/lib/constants";
@@ -28,7 +29,7 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div
           className={cn(
-            "flex items-center justify-between gap-4 rounded-full transition-all duration-300 px-3 md:px-4",
+            "flex items-center justify-between gap-4 rounded-full transition-all duration-300 px-3 md:px-5",
             scrolled
               ? "glass py-2 shadow-elevation"
               : "bg-white/[0.02] backdrop-blur-sm py-2 border border-white/5"
@@ -36,20 +37,25 @@ export function Header() {
         >
           <Link
             href="/"
-            className="flex items-center gap-2.5 group pl-2"
+            className="flex items-center gap-3 group"
             aria-label={SITE_CONFIG.name}
           >
-            <div className="relative size-10 rounded-full bg-gradient-to-br from-gold via-gold-400 to-gold-600 flex items-center justify-center shadow-gold">
-              <span className="font-display font-bold text-midnight text-lg">מ</span>
-            </div>
-            <div className="hidden sm:flex flex-col leading-tight">
-              <span className="font-display font-semibold text-base text-white">
-                משה אדרי
-              </span>
-              <span className="text-[10px] font-medium text-white/55 tracking-wide uppercase">
-                יועץ משכנתאות
-              </span>
-            </div>
+            <Image
+              src={SITE_CONFIG.logoMark}
+              alt=""
+              width={40}
+              height={40}
+              className="size-10 sm:hidden"
+              priority
+            />
+            <Image
+              src={SITE_CONFIG.logo}
+              alt={SITE_CONFIG.name}
+              width={200}
+              height={56}
+              className="hidden sm:block h-10 w-auto text-white"
+              priority
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">

@@ -57,8 +57,9 @@ export const heroBlock = defineType({
       initialValue: { label: "שלח וואטסאפ" },
     }),
     defineField({
-      name: "image",
-      title: "תמונה של משה אדרי",
+      name: "portrait",
+      title: "תמונת משה אדרי (PNG עם רקע שקוף)",
+      description: "תמונת דיוקן חתוכה עם רקע שקוף. מומלץ 800×1040.",
       type: "image",
       options: { hotspot: true },
     }),

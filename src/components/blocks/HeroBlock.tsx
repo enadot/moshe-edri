@@ -1,11 +1,10 @@
 "use client";
 
-import { Phone, MessageCircle, TrendingUp, Award, Users } from "lucide-react";
+import { Phone, MessageCircle, ArrowLeft, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MultiStepQuiz } from "@/components/MultiStepQuiz";
 import { HeroGsap } from "@/components/animations/HeroGsap";
 import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
-import { MagneticButton } from "@/components/animations/MagneticButton";
 import { SITE_CONFIG } from "@/lib/constants";
 import { buildWhatsAppLink } from "@/lib/utils";
 
@@ -24,11 +23,7 @@ export type HeroBlockData = {
   stats?: Stat[];
 };
 
-function parseStatValue(value: string): {
-  to: number;
-  prefix: string;
-  suffix: string;
-} {
+function parseStatValue(value: string) {
   const match = value.match(/^([^\d]*)(\d+(?:\.\d+)?)(.*)$/);
   if (!match) return { to: 0, prefix: "", suffix: value };
   return {
@@ -38,19 +33,25 @@ function parseStatValue(value: string): {
   };
 }
 
+const TRUST_POINTS = [
+  "ייעוץ חינם",
+  "ללא התחייבות",
+  "מענה תוך שעה",
+];
+
 export function HeroBlock({ data }: { data: HeroBlockData }) {
-  const headline = data.headline || "נחנקים מהמשכנתא? מסורבים בבנק?";
-  const highlight = data.highlightText || "משה אדרי: הקוסם הפיננסי";
+  const headline = data.headline || "נחנקים מהמשכנתא?";
+  const highlight = data.highlightText || "אנחנו נדאג שתחסכו.";
   const subheadline =
     data.subheadline ||
-    "אל תהיו פראיירים של הבנק! מאות משפחות כבר חסכו מאות אלפי שקלים וקיבלו אישור גם כשכולם אמרו לא.";
-  const badge = data.floatingBadge || 'חסכתי 270,000 ש"ח השבוע!';
+    "מאות משפחות בישראל כבר חסכו מאות אלפי שקלים בעזרת ייעוץ מקצועי. בואו לבדוק כמה אתם יכולים לחסוך.";
+  const badge = data.floatingBadge || "השבוע נחסך ללקוח: ₪270,000";
   const stats: Stat[] = data.stats?.length
     ? data.stats
     : [
         { value: "11+", label: "שנות ניסיון" },
-        { value: "500+", label: "לקוחות מרוצים" },
-        { value: "₪50M+", label: "נחסך ללקוחות" },
+        { value: "500+", label: "תיקים שטופלו" },
+        { value: "₪50M+", label: "סך חיסכון ללקוחות" },
       ];
 
   const whatsappLink = buildWhatsAppLink(
@@ -59,69 +60,76 @@ export function HeroBlock({ data }: { data: HeroBlockData }) {
     "Hero"
   );
 
-  const statIcons = [TrendingUp, Award, Users];
-
   return (
     <HeroGsap>
-      <section className="relative overflow-hidden bg-midnight-gradient text-white -mt-20 pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="absolute inset-0 grid-pattern opacity-30" />
-        <div className="hero-glow absolute top-20 right-1/4 size-72 rounded-full bg-gold/20 blur-3xl" />
-        <div className="hero-glow absolute bottom-10 left-1/4 size-96 rounded-full bg-orange/10 blur-3xl" />
+      <section className="relative overflow-hidden bg-[#0a192f] text-white -mt-20 pt-32 pb-20 md:pt-40 md:pb-28">
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 20% 50%, rgba(212,175,55,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(212,175,55,0.2) 0%, transparent 50%)",
+          }}
+        />
+        <div className="absolute inset-0 grid-pattern opacity-40" />
+        <div className="hero-orb absolute top-32 right-[15%] size-96 rounded-full bg-gold/[0.08] blur-3xl" />
+        <div className="hero-orb absolute bottom-10 left-[10%] size-80 rounded-full bg-orange/[0.06] blur-3xl" />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-            <div className="lg:col-span-3 order-2 lg:order-1">
-              <div className="hero-badge inline-flex items-center gap-2 bg-orange/20 border border-orange/40 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-                <span className="relative flex size-2">
-                  <span className="animate-ping absolute inline-flex size-2 rounded-full bg-orange opacity-75" />
-                  <span className="relative inline-flex size-2 rounded-full bg-orange" />
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-7 order-2 lg:order-1">
+              <div className="hero-badge inline-flex items-center gap-2.5 mb-8 py-1.5 pl-1.5 pr-4 rounded-full bg-white/[0.04] border border-white/[0.08]">
+                <span className="size-6 rounded-full bg-gold/15 flex items-center justify-center">
+                  <span className="size-2 rounded-full bg-gold animate-pulse" />
                 </span>
-                <span className="text-sm font-bold text-orange-100">
+                <span className="text-xs md:text-sm font-medium text-white/80">
                   {badge}
                 </span>
               </div>
 
-              <h1 className="hero-headline text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-6">
+              <h1 className="hero-headline font-display text-display-xl text-white mb-6 max-w-[18ch]">
                 <span className="block">{headline}</span>
                 <span className="block text-gold-gradient">{highlight}</span>
-                <span className="block text-white">שיציל לכם את הכסף.</span>
               </h1>
 
-              <p className="hero-sub text-lg md:text-xl text-midnight-100 leading-relaxed mb-8 max-w-2xl">
+              <p className="hero-sub text-lg md:text-xl text-white/65 leading-[1.6] mb-10 max-w-[55ch]">
                 {subheadline}
               </p>
 
-              <div className="hero-cta flex flex-wrap gap-3 mb-10">
-                <MagneticButton strength={0.3}>
-                  <Button asChild variant="orange" size="xl">
-                    <a href={data.ctaPrimary?.href || "#quick-form"}>
-                      <Phone className="size-5" />
-                      {data.ctaPrimary?.label || "בדוק כמה אתה יכול לחסוך"}
-                    </a>
-                  </Button>
-                </MagneticButton>
-                <MagneticButton strength={0.3}>
-                  <Button asChild variant="whatsapp" size="xl">
-                    <a
-                      href={whatsappLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <MessageCircle className="size-5" />
-                      {data.ctaSecondary?.label || "שלח וואטסאפ"}
-                    </a>
-                  </Button>
-                </MagneticButton>
+              <div className="hero-cta flex flex-wrap items-center gap-4 mb-10">
+                <Button asChild variant="orange" size="xl" className="rounded-full">
+                  <a href={data.ctaPrimary?.href || "#quick-form"}>
+                    {data.ctaPrimary?.label || "בדיקת חיסכון חינם"}
+                    <ArrowLeft className="size-5" />
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="xl"
+                  className="text-white hover:text-gold hover:bg-white/5 rounded-full"
+                >
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="size-5" />
+                    שלחו וואטסאפ
+                  </a>
+                </Button>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 max-w-md">
-                {stats.map((stat, i) => {
-                  const Icon = statIcons[i] || TrendingUp;
+              <ul className="hero-trust flex flex-wrap items-center gap-x-6 gap-y-2 mb-12 text-sm text-white/55">
+                {TRUST_POINTS.map((point) => (
+                  <li key={point} className="flex items-center gap-2">
+                    <Check className="size-4 text-gold" strokeWidth={2.5} />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="hero-stats grid grid-cols-3 gap-6 md:gap-10 max-w-lg pt-8 border-t border-white/[0.08]">
+                {stats.map((stat) => {
                   const parsed = parseStatValue(stat.value);
                   return (
-                    <div key={stat.label} className="hero-stat glass rounded-2xl p-4">
-                      <Icon className="size-5 text-gold mb-2" />
-                      <div className="text-2xl md:text-3xl font-extrabold text-white">
+                    <div key={stat.label}>
+                      <div className="font-display text-3xl md:text-4xl font-bold text-white tracking-tight">
                         {parsed.to > 0 ? (
                           <AnimatedCounter
                             to={parsed.to}
@@ -132,7 +140,7 @@ export function HeroBlock({ data }: { data: HeroBlockData }) {
                           stat.value
                         )}
                       </div>
-                      <div className="text-xs text-midnight-100">
+                      <div className="text-xs md:text-sm text-white/50 mt-1">
                         {stat.label}
                       </div>
                     </div>
@@ -143,36 +151,16 @@ export function HeroBlock({ data }: { data: HeroBlockData }) {
 
             <div
               id="quick-form"
-              className="hero-form lg:col-span-2 order-1 lg:order-2 relative"
+              className="hero-form lg:col-span-5 order-1 lg:order-2 relative"
             >
-              <div className="absolute -top-4 -right-4 bg-orange text-white px-4 py-2 rounded-full font-extrabold text-sm shadow-orange z-10 animate-float-up">
-                חינם · ללא התחייבות
-              </div>
-
               {data.showQuickForm !== false ? (
-                <MultiStepQuiz source="Hero - בדיקת בריאות משכנתא" />
-              ) : (
-                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-gold/30">
-                  <div className="absolute inset-0 bg-gradient-to-br from-midnight to-midnight-700 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="size-32 mx-auto mb-6 rounded-full bg-gold-gradient flex items-center justify-center text-7xl shadow-gold">
-                        👨‍💼
-                      </div>
-                      <h3 className="text-3xl font-black text-white mb-2">
-                        משה אדרי
-                      </h3>
-                      <p className="text-gold font-bold">
-                        יועץ משכנתאות מומחה
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
+                <MultiStepQuiz source="Hero - בדיקה מהירה" />
+              ) : null}
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+        <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </section>
     </HeroGsap>
   );

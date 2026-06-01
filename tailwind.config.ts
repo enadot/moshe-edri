@@ -17,8 +17,26 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ['"Google Sans"', '"Noto Sans Hebrew"', "system-ui", "sans-serif"],
-        display: ['"Google Sans"', '"Noto Sans Hebrew"', "system-ui", "sans-serif"],
+        sans: [
+          '"Google Sans Text"',
+          '"Google Sans"',
+          '"Heebo"',
+          "system-ui",
+          "sans-serif",
+        ],
+        display: [
+          '"Google Sans Display"',
+          '"Google Sans"',
+          '"Heebo"',
+          "system-ui",
+          "sans-serif",
+        ],
+      },
+      fontSize: {
+        "display-2xl": ["clamp(3.5rem, 8vw, 6rem)", { lineHeight: "1.02", letterSpacing: "-0.04em" }],
+        "display-xl": ["clamp(2.75rem, 6vw, 4.5rem)", { lineHeight: "1.05", letterSpacing: "-0.035em" }],
+        "display-lg": ["clamp(2.25rem, 4.5vw, 3.5rem)", { lineHeight: "1.08", letterSpacing: "-0.03em" }],
+        "display-md": ["clamp(1.875rem, 3.5vw, 2.5rem)", { lineHeight: "1.12", letterSpacing: "-0.025em" }],
       },
       colors: {
         midnight: {

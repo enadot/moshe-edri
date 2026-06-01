@@ -38,22 +38,22 @@ const FALLBACK: Audience[] = [
   {
     icon: "heart",
     title: "זוגות צעירים ורוכשי דירה ראשונה",
-    description: "ליווי צמוד לקבלת המשכנתא בתנאים הטובים ביותר",
+    description: "ליווי לקבלת המשכנתא בתנאים המתאימים לצרכים שלכם",
   },
   {
     icon: "home",
     title: "משפחות שרוצות לשדרג דיור",
-    description: "מיחזור משכנתא חכם ומשכנתא לשיפוץ והרחבה",
+    description: "מיחזור משכנתא ומימון לשיפוץ והרחבה",
   },
   {
     icon: "x-circle",
     title: "מסורבי בנקים",
-    description: "מציאת פתרונות מימון גם לאחר שקיבלתם סירוב",
+    description: "מציאת פתרונות מימון גם לאחר סירוב מהבנק",
   },
   {
     icon: "layers",
     title: "בעלי הלוואות רבות",
-    description: "איחוד הלוואות שיחזיר לכם את השקט הכלכלי",
+    description: "איחוד הלוואות לסדר פיננסי ולחיסכון",
   },
   {
     icon: "briefcase",
@@ -72,27 +72,27 @@ export function WhoWeHelpBlock({ data }: { data: WhoWeHelpBlockData }) {
     data.audiences && data.audiences.length > 0 ? data.audiences : FALLBACK;
 
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section className="py-24 md:py-32 bg-midnight-50/30">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="max-w-2xl mb-16">
           {data.eyebrow && (
-            <span
-              data-gsap="fade-up"
-              className="inline-block px-4 py-1 rounded-full bg-orange/10 text-orange text-sm font-bold mb-4"
-            >
-              {data.eyebrow}
-            </span>
+            <div data-gsap="fade-up" className="mb-4">
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-gold-700">
+                <span className="size-1.5 rounded-full bg-gold" />
+                {data.eyebrow}
+              </span>
+            </div>
           )}
           <h2
             data-gsap="fade-up"
-            className="text-3xl md:text-5xl font-black text-midnight mb-4 leading-tight"
+            className="font-display text-display-lg text-midnight mb-5"
           >
-            {data.heading || "נחנקתם מההחזרים? הבנק סגר לכם דלת?"}
+            {data.heading || "למי השירות מתאים"}
           </h2>
           {data.description && (
             <p
               data-gsap="fade-up"
-              className="text-lg text-midnight-600 leading-relaxed"
+              className="text-lg text-midnight-500 leading-relaxed"
             >
               {data.description}
             </p>
@@ -101,27 +101,27 @@ export function WhoWeHelpBlock({ data }: { data: WhoWeHelpBlockData }) {
 
         <div
           data-gsap="stagger-children"
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
         >
           {audiences.map((audience, i) => {
             const Icon = ICONS[audience.icon || "heart"] || Heart;
             return (
               <div
                 key={i}
-                className="group relative bg-gradient-to-br from-white to-midnight-50/30 rounded-3xl p-6 md:p-8 border-2 border-midnight-100/50 hover:border-gold transition-all hover:shadow-xl hover:-translate-y-2 overflow-hidden"
+                className="group bg-white rounded-2xl p-7 border border-midnight-100 hover:border-gold/40 hover:shadow-soft transition-all duration-300"
               >
-                <div className="absolute -top-10 -left-10 size-32 rounded-full bg-gold/5 group-hover:bg-gold/20 transition-colors blur-2xl" />
-                <div className="relative z-10">
-                  <div className="size-14 rounded-2xl bg-midnight text-gold flex items-center justify-center mb-4 group-hover:bg-gold-gradient group-hover:text-midnight transition-all duration-300">
-                    <Icon className="size-7" />
-                  </div>
-                  <h3 className="text-xl font-extrabold text-midnight mb-2 leading-tight">
-                    {audience.title}
-                  </h3>
-                  <p className="text-midnight-600 leading-relaxed text-sm">
-                    {audience.description}
-                  </p>
+                <div className="size-11 rounded-xl bg-midnight-50 group-hover:bg-gold/10 flex items-center justify-center mb-5 transition-colors">
+                  <Icon
+                    className="size-5 text-midnight group-hover:text-gold-700 transition-colors"
+                    strokeWidth={2}
+                  />
                 </div>
+                <h3 className="font-display text-base md:text-lg font-bold text-midnight mb-2">
+                  {audience.title}
+                </h3>
+                <p className="text-midnight-500 leading-relaxed text-sm">
+                  {audience.description}
+                </p>
               </div>
             );
           })}

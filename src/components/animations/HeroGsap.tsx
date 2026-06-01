@@ -10,72 +10,31 @@ export function HeroGsap({ children }: { children: React.ReactNode }) {
     if (!ref.current) return;
     registerGsap();
 
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReduced) return;
+
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      const tl = gsap.timeline({
+        defaults: { ease: "power2.out", duration: 0.7 },
+      });
 
-      tl.from(".hero-badge", {
-        opacity: 0,
-        y: -20,
-        scale: 0.8,
-        duration: 0.6,
-      })
-        .from(
-          ".hero-headline > *",
-          {
-            opacity: 0,
-            y: 60,
-            stagger: 0.12,
-            duration: 0.9,
-          },
-          "-=0.3"
-        )
-        .from(
-          ".hero-sub",
-          {
-            opacity: 0,
-            y: 30,
-            duration: 0.7,
-          },
-          "-=0.5"
-        )
-        .from(
-          ".hero-cta > *",
-          {
-            opacity: 0,
-            y: 30,
-            scale: 0.9,
-            stagger: 0.1,
-            duration: 0.6,
-          },
-          "-=0.3"
-        )
-        .from(
-          ".hero-stat",
-          {
-            opacity: 0,
-            y: 40,
-            stagger: 0.1,
-            duration: 0.5,
-          },
-          "-=0.2"
-        )
-        .from(
-          ".hero-form",
-          {
-            opacity: 0,
-            x: -40,
-            duration: 0.8,
-          },
-          "-=0.8"
-        );
+      tl.from(".hero-badge", { opacity: 0, y: 12 }, 0)
+        .from(".hero-headline", { opacity: 0, y: 24 }, 0.1)
+        .from(".hero-sub", { opacity: 0, y: 16 }, 0.25)
+        .from(".hero-cta", { opacity: 0, y: 16 }, 0.4)
+        .from(".hero-trust", { opacity: 0, y: 12 }, 0.5)
+        .from(".hero-stats > *", { opacity: 0, y: 20, stagger: 0.08 }, 0.55)
+        .from(".hero-form", { opacity: 0, y: 24, duration: 0.9 }, 0.2);
 
-      gsap.to(".hero-glow", {
-        scale: 1.2,
-        opacity: 0.5,
-        duration: 4,
+      gsap.to(".hero-orb", {
+        scale: 1.15,
+        opacity: 0.6,
+        duration: 6,
         repeat: -1,
         yoyo: true,
-        ease: "power1.inOut",
+        ease: "sine.inOut",
       });
     }, ref);
 

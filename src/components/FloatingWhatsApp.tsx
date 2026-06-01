@@ -10,7 +10,7 @@ export function FloatingWhatsApp() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShow(true), 1500);
+    const timer = setTimeout(() => setShow(true), 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -23,29 +23,29 @@ export function FloatingWhatsApp() {
   );
 
   return (
-    <div className="fixed bottom-6 left-6 z-40 print:hidden">
+    <div className="fixed bottom-5 left-5 z-40 print:hidden">
       {open && (
-        <div className="absolute bottom-20 left-0 w-72 bg-white rounded-2xl shadow-2xl border border-midnight-100 overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-300">
-          <div className="bg-[#075E54] text-white p-4 flex items-center gap-3">
-            <div className="size-12 rounded-full bg-gold-gradient text-midnight font-black text-xl flex items-center justify-center">
-              מ
+        <div className="absolute bottom-16 left-0 w-72 bg-white rounded-2xl shadow-elevation border border-midnight-100 overflow-hidden animate-slide-in-up">
+          <div className="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3">
+            <div className="size-9 rounded-full bg-white/15 flex items-center justify-center">
+              <span className="font-display font-bold text-base">מ</span>
             </div>
             <div className="flex-1">
-              <div className="font-bold text-sm">משה אדרי</div>
-              <div className="text-xs text-green-100">בדרך כלל זמין מיד</div>
+              <div className="font-semibold text-sm">משה אדרי</div>
+              <div className="text-[11px] text-green-100/80">בדרך כלל זמין מיד</div>
             </div>
             <button
               onClick={() => setOpen(false)}
               className="text-white/70 hover:text-white transition-colors"
               aria-label="סגור"
             >
-              <X className="size-5" />
+              <X className="size-4" />
             </button>
           </div>
-          <div className="p-4 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZmlsbD0iI2VmZWFlMiIgZD0iTTAgMGg0MHY0MEgweiIvPjwvc3ZnPg==')] bg-repeat">
-            <div className="bg-white rounded-2xl rounded-tr-none p-3 shadow-sm max-w-[85%]">
-              <p className="text-sm text-midnight">
-                שלום! 👋 אני משה. איך אוכל לעזור לך לחסוך אלפי שקלים על המשכנתא?
+          <div className="p-4 bg-[#ECE5DD]">
+            <div className="bg-white rounded-xl rounded-tr-sm p-3 max-w-[85%]">
+              <p className="text-[13px] text-midnight">
+                שלום, אשמח לסייע לכם במשכנתא. מה התחום הרלוונטי עבורכם?
               </p>
               <span className="text-[10px] text-midnight-400 block text-left mt-1">
                 עכשיו
@@ -56,19 +56,19 @@ export function FloatingWhatsApp() {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-[#25D366] text-white font-bold text-center py-3 hover:bg-[#1ebe57] transition-colors"
+            className="block bg-[#25D366] text-white font-semibold text-center py-3 text-sm hover:bg-[#1ebe57] transition-colors"
           >
-            התחל שיחה בוואטסאפ
+            התחילו שיחה
           </a>
         </div>
       )}
 
       <button
         onClick={() => setOpen(!open)}
-        className="relative size-16 rounded-full bg-[#25D366] text-white shadow-2xl flex items-center justify-center hover:scale-110 transition-transform animate-pulse-ring"
+        className="relative size-14 rounded-full bg-[#25D366] text-white shadow-elevation flex items-center justify-center hover:scale-105 transition-transform"
         aria-label="צור קשר בוואטסאפ"
       >
-        {open ? <X className="size-7" /> : <MessageCircle className="size-7" />}
+        {open ? <X className="size-5" /> : <MessageCircle className="size-6" />}
       </button>
     </div>
   );

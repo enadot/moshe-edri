@@ -5,7 +5,7 @@ import { TestimonialsBlock } from "@/components/blocks/TestimonialsBlock";
 import { CtaBlock } from "@/components/blocks/CtaBlock";
 
 export const metadata: Metadata = {
-  title: "אודות משה אדרי - הקוסם הפיננסי עם 11+ שנות ניסיון",
+  title: "אודות משה אדרי - יועץ משכנתאות מוביל עם 11+ שנות ניסיון",
   description:
     "הכירו את משה אדרי - יועץ משכנתאות מומחה עם 11+ שנות ניסיון, מומחיות בתיקים מורכבים וקשרים ישירים עם בכירי הבנקים. הסיפור שלי, הפילוסופיה והערכים.",
 };
@@ -22,7 +22,7 @@ export default function AboutPage() {
           <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
             <span className="text-gold-gradient">משה אדרי</span>
             <br />
-            הסיפור שמאחורי ההצלחה
+            יועץ משכנתאות מוביל
           </h1>
         </div>
       </section>

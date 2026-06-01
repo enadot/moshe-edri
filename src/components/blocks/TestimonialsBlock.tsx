@@ -28,7 +28,7 @@ const FALLBACK_TESTIMONIALS: Testimonial[] = [
     name: "משפחת כהן",
     role: "תל אביב",
     quote:
-      "משה אדרי פשוט הציל אותנו! לא האמנו שאפשר לצאת מהמצב הזה. אחרי שניים מהבנקים סירבו, משה השיג לנו אישור תוך 3 ימים בתנאים מצוינים.",
+      "ייעוץ מקצועי ויעיל. אחרי ששני בנקים סירבו, משה השיג לנו אישור תוך 3 ימים בתנאים טובים יותר ממה שציפינו.",
     savings: "₪270,000",
     category: "refinance",
     type: "text",
@@ -38,8 +38,8 @@ const FALLBACK_TESTIMONIALS: Testimonial[] = [
     name: "דוד לוי",
     role: "ירושלים",
     quote:
-      "היו לי 7 הלוואות שונות והייתי נחנק. משה עשה איחוד חכם והוריד לי את ההחזר החודשי ב-3,500 ₪. הוא קוסם!",
-    savings: "₪3,500 לחודש",
+      "היו לי 7 הלוואות שונות והרגשתי לחוץ. משה ביצע איחוד חכם והוריד את ההחזר החודשי ב-3,500 ₪. שירות מעולה.",
+    savings: "₪3,500/חודש",
     category: "consolidation",
     type: "text",
   },
@@ -48,8 +48,8 @@ const FALLBACK_TESTIMONIALS: Testimonial[] = [
     name: "רחל ויעקב",
     role: "חיפה",
     quote:
-      "בנינו עם משה את התמהיל הראשון של המשכנתא. ההכוונה והליווי היו מעבר לכל דמיון. הרגשנו שיש לנו 'איש פנימי' בבנק.",
-    savings: "אישור חריג",
+      "בנינו עם משה את התמהיל הראשון של המשכנתא. ההכוונה והליווי היו ברמה גבוהה - תמיד הרגשנו שיש מי שמטפל בנו.",
+    savings: "תמהיל אופטימלי",
     category: "first",
     type: "video",
     videoUrl: "https://example.com/video1",
@@ -59,7 +59,7 @@ const FALLBACK_TESTIMONIALS: Testimonial[] = [
     name: "אבי שמש",
     role: "פתח תקווה",
     quote:
-      "סורבתי בשלושה בנקים. משה לקח את התיק, ותוך שבועיים קיבלתי אישור על משכנתא ב-90% מימון. עד היום לא מאמין שזה אמיתי.",
+      "סורבתי בשלושה בנקים. משה לקח את התיק, ותוך שבועיים קיבלתי אישור על משכנתא ב-90% מימון. ממליץ בחום.",
     savings: "אישור 90%",
     category: "rejected",
     type: "whatsapp",
@@ -69,7 +69,7 @@ const FALLBACK_TESTIMONIALS: Testimonial[] = [
     name: "משפחת אזולאי",
     role: "באר שבע",
     quote:
-      'מיחזרנו את המשכנתא עם משה והוא חסך לנו 180,000 ש"ח על כל התקופה. שירות הפתחה, מקצועיות, ואכפתיות אמיתית.',
+      "מיחזרנו את המשכנתא עם משה ונחסכו לנו 180,000 ש\"ח לאורך התקופה. תהליך נעים, מקצועי וענייני.",
     savings: "₪180,000",
     category: "refinance",
     type: "text",
@@ -79,8 +79,8 @@ const FALLBACK_TESTIMONIALS: Testimonial[] = [
     name: "יואב כץ",
     role: "ראשון לציון",
     quote:
-      "ייעוץ מקצועי, אישי, ומדויק. משה תפר לנו פתרון שאף יועץ אחר לא חשב עליו. ממליצים בחום!",
-    savings: "מומלץ",
+      "ייעוץ אישי, ענייני ומדויק. משה הציע פתרון שלא חשבנו עליו. תוצאות עסקיות שיוצרות הבדל אמיתי.",
+    savings: "פתרון מותאם",
     category: "first",
     type: "text",
   },
@@ -91,44 +91,51 @@ function TestimonialCard({ t }: { t: Testimonial }) {
   const isWhatsapp = t.type === "whatsapp";
 
   return (
-    <div className="relative bg-white rounded-3xl border-2 border-midnight-100 p-6 md:p-7 hover:border-gold transition-all hover:shadow-xl hover:-translate-y-1 group">
-      <div className="flex items-start justify-between mb-4">
-        <div className="size-12 rounded-2xl bg-gold-gradient flex items-center justify-center shadow-gold">
-          <Quote className="size-6 text-midnight" />
-        </div>
+    <div className="relative bg-white rounded-3xl border border-midnight-100 p-7 hover:border-gold/40 hover:shadow-soft transition-all duration-300 group">
+      <div className="flex items-start justify-between mb-5">
+        <Quote className="size-7 text-gold/30" strokeWidth={1.5} />
         <div className="flex gap-0.5">
           {[...Array(5)].map((_, idx) => (
-            <Star key={idx} className="size-4 fill-gold text-gold" />
+            <Star
+              key={idx}
+              className="size-3.5 fill-gold text-gold"
+            />
           ))}
         </div>
       </div>
 
       {isVideo && (
-        <div className="absolute top-4 left-4 size-10 rounded-full bg-orange flex items-center justify-center shadow-orange cursor-pointer group-hover:scale-110 transition-transform">
-          <Play className="size-5 text-white fill-white mr-0.5" />
+        <div className="absolute top-5 left-5 size-9 rounded-full bg-orange/10 border border-orange/20 flex items-center justify-center">
+          <Play
+            className="size-3.5 text-orange fill-orange mr-0.5"
+            strokeWidth={2}
+          />
         </div>
       )}
 
       {isWhatsapp && (
-        <div className="absolute top-4 left-4 size-10 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg">
-          <MessageCircle className="size-5 text-white" />
+        <div className="absolute top-5 left-5 size-9 rounded-full bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center">
+          <MessageCircle className="size-4 text-[#25D366]" strokeWidth={2} />
         </div>
       )}
 
-      <blockquote className="text-midnight-700 leading-relaxed mb-5 text-sm md:text-base">
-        "{t.quote}"
+      <blockquote className="text-midnight-700 leading-relaxed mb-6 text-[15px]">
+        {t.quote}
       </blockquote>
 
-      <div className="flex items-center justify-between pt-4 border-t border-midnight-100">
+      <div className="flex items-center justify-between pt-5 border-t border-midnight-100">
         <div>
-          <div className="font-extrabold text-midnight">{t.name}</div>
-          {t.role && <div className="text-xs text-midnight-500">{t.role}</div>}
+          <div className="font-semibold text-midnight text-sm">{t.name}</div>
+          {t.role && (
+            <div className="text-xs text-midnight-500 mt-0.5">{t.role}</div>
+          )}
         </div>
         {t.savings && (
-          <div className="bg-orange/10 border border-orange/30 px-3 py-1 rounded-full">
-            <span className="text-orange font-extrabold text-sm">
-              חסך {t.savings}
-            </span>
+          <div className="text-left">
+            <div className="text-[10px] text-midnight-500 uppercase tracking-wide">
+              חסכון
+            </div>
+            <div className="text-gold-700 font-bold text-sm">{t.savings}</div>
           </div>
         )}
       </div>
@@ -143,27 +150,27 @@ export function TestimonialsBlock({ data }: { data: TestimonialsBlockData }) {
       : FALLBACK_TESTIMONIALS;
 
   return (
-    <section id="testimonials" className="py-20 md:py-28 bg-white relative">
+    <section id="testimonials" className="py-24 md:py-32 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="max-w-2xl mb-16">
           {data.eyebrow && (
-            <span
-              data-gsap="fade-up"
-              className="inline-block px-4 py-1 rounded-full bg-orange/10 text-orange text-sm font-bold mb-4"
-            >
-              {data.eyebrow}
-            </span>
+            <div data-gsap="fade-up" className="mb-4">
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-gold-700">
+                <span className="size-1.5 rounded-full bg-gold" />
+                {data.eyebrow}
+              </span>
+            </div>
           )}
           <h2
             data-gsap="fade-up"
-            className="text-3xl md:text-5xl font-black text-midnight mb-4 leading-tight"
+            className="font-display text-display-lg text-midnight mb-5"
           >
-            {data.heading || "ההוכחה החריגה: לקוחות מרוצים מספרים"}
+            {data.heading || "לקוחות מספרים"}
           </h2>
           {data.description && (
             <p
               data-gsap="fade-up"
-              className="text-lg text-midnight-600 leading-relaxed"
+              className="text-lg text-midnight-500 leading-relaxed"
             >
               {data.description}
             </p>
@@ -172,7 +179,7 @@ export function TestimonialsBlock({ data }: { data: TestimonialsBlockData }) {
 
         <div
           data-gsap="stagger-children"
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {testimonials.map((t) => (
             <TestimonialCard key={t._id} t={t} />

@@ -11,14 +11,14 @@ export const heroBlock = defineType({
       name: "headline",
       title: "כותרת ראשית",
       type: "string",
-      initialValue: "נחנקים מהמשכנתא? מסורבים בבנק?",
+      initialValue: "נחנקים מהמשכנתא?",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "highlightText",
       title: "טקסט מודגש בזהב",
       type: "string",
-      initialValue: "משה אדרי: הקוסם הפיננסי",
+      initialValue: "אנחנו נדאג שתחסכו.",
     }),
     defineField({
       name: "subheadline",
@@ -26,13 +26,13 @@ export const heroBlock = defineType({
       type: "text",
       rows: 3,
       initialValue:
-        "אל תהיו פראיירים של הבנק! מאות משפחות כבר חסכו מאות אלפי שקלים וקיבלו אישור גם כשכולם אמרו לא.",
+        "מאות משפחות בישראל כבר חסכו מאות אלפי שקלים בעזרת ייעוץ מקצועי. בואו לבדוק כמה אתם יכולים לחסוך.",
     }),
     defineField({
       name: "floatingBadge",
       title: "באדג' צף (חיסכון השבוע)",
       type: "string",
-      initialValue: 'חסכתי 270,000 ש"ח השבוע!',
+      initialValue: 'השבוע נחסך ללקוח: ₪270,000',
     }),
     defineField({
       name: "ctaPrimary",

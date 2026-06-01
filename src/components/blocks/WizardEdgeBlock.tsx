@@ -34,37 +34,42 @@ export type WizardEdgeBlockData = {
   differentiators?: Differentiator[];
 };
 
-const FALLBACK_DIFFERENTIATORS: Differentiator[] = [
+const FALLBACK: Differentiator[] = [
   {
     icon: "calendar-check",
-    title: "11 שנות ניסיון",
-    description: "מקצוענות מוכחת ומוניטין של הצלחות בשוק המשכנתאות הישראלי",
+    title: "11+ שנות ניסיון",
+    description:
+      "ניסיון מעמיק בשוק המשכנתאות הישראלי וטיפול במאות תיקים מסוגים שונים.",
   },
   {
     icon: "link",
-    title: 'קשרים ישירים עם מנכ"לים',
+    title: "קשרים מקצועיים",
     description:
-      "גישה ישירה לבכירי הבנקים וחברות המימון - תוצאות שאחרים לא יכולים להשיג",
+      "עבודה ישירה עם בכירי הבנקים וחברות המימון להשגת תנאים אטרקטיביים.",
   },
   {
     icon: "key",
-    title: "אין מסורבים",
-    description: "פתרונות יצירתיים ואישיים גם לתיקים המורכבים ביותר",
+    title: "פתרונות לתיקים מורכבים",
+    description:
+      "ידע וניסיון במציאת פתרונות מותאמים גם למקרים שבהם הבנקים סירבו.",
   },
   {
     icon: "trending-up",
-    title: "חיסכון אדיר",
-    description: "מאות אלפי שקלים נחסכו ללקוחות שלנו בזכות מיחזורים חכמים",
+    title: "חיסכון משמעותי",
+    description:
+      "מאות אלפי שקלים שנחסכו ללקוחות באמצעות מיחזורים חכמים ותכנון אסטרטגי.",
   },
   {
     icon: "shield-check",
-    title: "שירות בוטיק אישי",
-    description: "ליווי צמוד ומקצועי לכל אורך התהליך, ללא הסתרות וללא הפתעות",
+    title: "ליווי אישי",
+    description:
+      "שירות בוטיק - ליווי צמוד ומקצועי לכל אורך התהליך, בשקיפות מלאה.",
   },
   {
     icon: "sparkles",
-    title: "פתרונות חריגים",
-    description: "אישורים חריגים והסדרים מיוחדים שמדהימים גם את בכירי הבנק",
+    title: "תפירה אישית",
+    description:
+      "התאמת תמהיל המשכנתא לצרכים הספציפיים, ליכולות ולתכנון העתידי שלכם.",
   },
 ];
 
@@ -72,44 +77,39 @@ export function WizardEdgeBlock({ data }: { data: WizardEdgeBlockData }) {
   const differentiators =
     data.differentiators && data.differentiators.length > 0
       ? data.differentiators
-      : FALLBACK_DIFFERENTIATORS;
+      : FALLBACK;
 
   return (
-    <section className="py-20 md:py-28 bg-midnight-gradient text-white relative overflow-hidden">
-      <div className="absolute inset-0 grid-pattern opacity-20" />
+    <section className="py-24 md:py-32 bg-[#0a192f] text-white relative overflow-hidden">
+      <div className="absolute inset-0 grid-pattern opacity-30" />
       <div
-        data-gsap="parallax"
-        data-speed="0.4"
-        className="absolute top-1/4 right-0 size-96 rounded-full bg-gold/10 blur-3xl"
-      />
-      <div
-        data-gsap="parallax"
-        data-speed="0.3"
-        className="absolute bottom-0 left-1/4 size-80 rounded-full bg-orange/10 blur-3xl"
+        className="absolute inset-0 opacity-50"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 80% 20%, rgba(212,175,55,0.08) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(255,77,0,0.05) 0%, transparent 50%)",
+        }}
       />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="max-w-2xl mb-16">
           {data.eyebrow && (
-            <span
-              data-gsap="fade-up"
-              className="inline-block px-4 py-1 rounded-full bg-gold/10 border border-gold/30 text-gold text-sm font-bold mb-4"
-            >
-              {data.eyebrow}
-            </span>
+            <div data-gsap="fade-up" className="mb-4">
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-gold">
+                <span className="size-1.5 rounded-full bg-gold" />
+                {data.eyebrow}
+              </span>
+            </div>
           )}
           <h2
             data-gsap="fade-up"
-            className="text-3xl md:text-5xl font-black mb-6 leading-tight"
+            className="font-display text-display-lg text-white mb-5"
           >
-            <span className="text-gold-gradient">
-              {data.heading || "דלת שנסגרת נפתחת"}
-            </span>
+            {data.heading || "למה דווקא איתנו"}
           </h2>
           {data.description && (
             <p
               data-gsap="fade-up"
-              className="text-lg text-midnight-100 leading-relaxed"
+              className="text-lg text-white/60 leading-relaxed"
             >
               {data.description}
             </p>
@@ -118,22 +118,22 @@ export function WizardEdgeBlock({ data }: { data: WizardEdgeBlockData }) {
 
         <div
           data-gsap="stagger-children"
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.06] rounded-3xl overflow-hidden border border-white/[0.06]"
         >
           {differentiators.map((diff, i) => {
             const Icon = ICONS[diff.icon || "sparkles"] || Sparkles;
             return (
               <div
                 key={i}
-                className="glass rounded-2xl p-6 md:p-8 group cursor-default hover:-translate-y-2 transition-transform duration-500"
+                className="bg-[#0a192f] p-8 md:p-10 hover:bg-white/[0.02] transition-colors duration-300"
               >
-                <div className="size-14 rounded-2xl bg-gold-gradient flex items-center justify-center mb-5 shadow-gold group-hover:rotate-6 transition-transform">
-                  <Icon className="size-7 text-midnight" />
+                <div className="size-11 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mb-5">
+                  <Icon className="size-5 text-gold" strokeWidth={2} />
                 </div>
-                <h3 className="text-xl font-extrabold text-white mb-2">
+                <h3 className="font-display text-lg md:text-xl font-bold text-white mb-2">
                   {diff.title}
                 </h3>
-                <p className="text-midnight-100 leading-relaxed text-sm">
+                <p className="text-white/55 leading-relaxed text-sm">
                   {diff.description}
                 </p>
               </div>

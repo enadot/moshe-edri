@@ -17,7 +17,7 @@ export const aboutBlock = defineType({
       name: "heading",
       title: "כותרת",
       type: "string",
-      initialValue: "משה אדרי: הקוסם הפיננסי שמאחורי ההצלחה שלכם",
+      initialValue: "המומחה שמלווה אתכם לעסקה חכמה יותר",
     }),
     defineField({
       name: "body",

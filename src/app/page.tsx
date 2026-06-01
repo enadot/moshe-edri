@@ -49,7 +49,7 @@ const DEFAULT_BLOCKS: Block[] = [
     _type: "aboutBlock",
     _key: "about-default",
     eyebrow: "אודות משה אדרי",
-    heading: "הקוסם הפיננסי שמאחורי ההצלחה שלכם",
+    heading: "המומחה שמלווה אתכם לעסקה חכמה יותר",
   } as Block,
   {
     _type: "faqBlock",

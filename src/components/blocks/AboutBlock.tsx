@@ -26,7 +26,7 @@ const FALLBACK_BODY: PortableTextBlock[] = [
       {
         _type: "span",
         _key: "1a",
-        text: "משה אדרי הוא יועץ משכנתאות ומומחה מימון בעל שם ומוניטין, עם למעלה מ-11 שנות ניסיון בתחום. משה ידוע ביכולתו יוצאת הדופן לאשר תיקים מורכבים, למצוא פתרונות יצירתיים גם במקרים שנראים אבודים, ולחסוך ללקוחותיו מאות אלפי שקלים.",
+        text: "משה אדרי הוא יועץ משכנתאות ומומחה מימון עם למעלה מ-11 שנות ניסיון בתחום. הוא מתמחה באישור תיקים מורכבים, מציאת פתרונות מותאמים אישית גם במקרים מאתגרים, וחיסכון משמעותי ללקוחות במיחזור משכנתאות.",
       },
     ],
   } as unknown as PortableTextBlock,
@@ -38,7 +38,7 @@ const FALLBACK_BODY: PortableTextBlock[] = [
       {
         _type: "span",
         _key: "2a",
-        text: "הוא בנה רשת קשרים ענפה עם בכירי המערכת הבנקאית וחברות המימון, מה שמאפשר לו להשיג תנאים מועדפים ואישורים חריגים. משה מאמין שלכל אדם מגיע שקט כלכלי, והוא מחויב ללוות כל לקוח באופן אישי, במקצועיות חסרת פשרות ובשירות בוטיק.",
+        text: "משה בנה קשרים מקצועיים עם בכירי המערכת הבנקאית וחברות המימון, מה שמאפשר לו להשיג תנאים מועדפים ללקוחותיו. הוא מאמין בליווי אישי, מקצועיות ושקיפות מלאה לכל אורך הדרך.",
       },
     ],
   } as unknown as PortableTextBlock,
@@ -78,23 +78,38 @@ export function AboutBlock({ data }: { data: AboutBlockData }) {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div data-gsap="reveal-x" data-dir="right" className="relative">
-            <div className="absolute -inset-4 bg-gold-gradient rounded-3xl blur-2xl opacity-20" />
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border-4 border-gold/30 bg-gradient-to-br from-midnight to-midnight-700 shadow-2xl">
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#0a192f]">
               <div className="absolute inset-0 grid-pattern opacity-30" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="size-40 mx-auto mb-6 rounded-full bg-gold-gradient flex items-center justify-center text-8xl shadow-gold">
-                    👨‍💼
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle at 70% 30%, rgba(212,175,55,0.15) 0%, transparent 60%)",
+                }}
+              />
+
+              <div className="relative h-full flex flex-col justify-between p-10">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-xs font-medium text-gold tracking-wider uppercase mb-2">
+                    <span className="size-1 rounded-full bg-gold" />
+                    Personal
                   </div>
-                  <h3 className="text-4xl font-black text-white mb-2">
-                    משה אדרי
+                  <div className="font-display text-sm text-white/40">
+                    Moshe Adri
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="font-display text-5xl md:text-6xl font-bold text-white leading-[1] mb-3">
+                    משה
+                    <br />
+                    אדרי.
                   </h3>
-                  <p className="text-gold font-bold text-lg">
-                    יועץ משכנתאות מומחה
-                  </p>
-                  <div className="mt-4 inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-bold">
-                    <Award className="size-4 text-gold" />
-                    11+ שנות ניסיון
+                  <div className="flex items-center gap-3 mt-6 pt-6 border-t border-white/10">
+                    <Award className="size-5 text-gold" strokeWidth={2} />
+                    <span className="text-white/80 text-sm font-medium">
+                      11+ שנות ניסיון
+                    </span>
                   </div>
                 </div>
               </div>
@@ -108,7 +123,7 @@ export function AboutBlock({ data }: { data: AboutBlockData }) {
               </span>
             )}
             <h2 className="text-3xl md:text-5xl font-black text-midnight mb-6 leading-tight">
-              {data.heading || "הקוסם הפיננסי שמאחורי ההצלחה שלכם"}
+              {data.heading || "המומחה שמלווה אתכם לעסקה חכמה יותר"}
             </h2>
             <div className="prose prose-lg max-w-none text-midnight-700 leading-relaxed mb-8 [&>p]:mb-4">
               <PortableText value={body} />

@@ -9,7 +9,7 @@ import { Toaster } from "sonner";
 export const metadata: Metadata = {
   metadataBase: new URL("https://mosheadri.co.il"),
   title: {
-    default: "משה אדרי | יועץ משכנתאות - הקוסם הפיננסי | מיחזור משכנתא ואיחוד הלוואות",
+    default: "משה אדרי | יועץ משכנתאות מוביל | מיחזור משכנתא ואיחוד הלוואות",
     template: "%s | משה אדרי - יועץ משכנתאות",
   },
   description:
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     locale: "he_IL",
     url: "https://mosheadri.co.il",
     siteName: "משה אדרי - יועץ משכנתאות",
-    title: "משה אדרי - הקוסם הפיננסי שיציל לכם את הכסף",
+    title: "משה אדרי - יועץ משכנתאות מוביל בישראל",
     description:
       "מאות משפחות כבר חסכו מאות אלפי שקלים. גם אם סורבתם - יש פתרון. ייעוץ חינם ללא התחייבות.",
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "משה אדרי - הקוסם הפיננסי",
+    title: "משה אדרי - יועץ משכנתאות",
     description: "חסכו מאות אלפי שקלים. ייעוץ חינם!",
     images: ["/og-image.jpg"],
   },
@@ -90,7 +90,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700;900&family=Noto+Sans+Hebrew:wght@400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Google+Sans+Display:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Heebo:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
         <script

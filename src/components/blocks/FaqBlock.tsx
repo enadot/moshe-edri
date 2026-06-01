@@ -1,6 +1,5 @@
 "use client";
 
-import { HelpCircle } from "lucide-react";
 import { PortableText, type PortableTextBlock } from "@portabletext/react";
 import {
   Accordion,
@@ -29,37 +28,37 @@ const FALLBACK_FAQ: FaqItem[] = [
     _id: "f1",
     question: "מהו מיחזור משכנתא ומתי כדאי לבצע אותו?",
     answer:
-      'מיחזור משכנתא הוא תהליך שבו אנו "סוגרים" את המשכנתא הקיימת ולוקחים חדשה בתנאים אטרקטיביים יותר. כדאי לבצע מיחזור כשיש שינוי בריביות בשוק, שינוי ביכולות הפיננסיות שלכם, או כשרוצים לקצר/להאריך תקופה. בדיקת ההיתכנות אצלנו - חינם!',
+      "מיחזור משכנתא הוא תהליך שבו סוגרים את המשכנתא הקיימת ולוקחים חדשה בתנאים אטרקטיביים יותר. כדאי לשקול מיחזור כשיש שינוי בריביות בשוק, שינוי ביכולות הפיננסיות, או רצון לקצר או להאריך תקופה. בדיקת ההיתכנות אצלנו - ללא עלות.",
   },
   {
     _id: "f2",
     question: "האם ניתן לקבל משכנתא גם אם סורבתי בבנק אחר?",
     answer:
-      "בהחלט כן! זו אחת המומחיות המרכזיות שלנו. בזכות קשרים ישירים עם בכירי המערכת הבנקאית וחברות המימון, אנו פותחים דלתות שנסגרו ומציאים פתרונות יצירתיים גם למקרים מורכבים. מאות לקוחות שסורבו קיבלו אצלנו אישור.",
+      "כן, זוהי אחת ההתמחויות שלנו. בזכות עבודה ישירה עם בכירי המערכת הבנקאית וחברות המימון, אנו מצליחים למצוא פתרונות יצירתיים גם למקרים מורכבים. לקוחות רבים שסורבו קיבלו אצלנו אישור.",
   },
   {
     _id: "f3",
     question: "מה ההבדל בין יועץ משכנתאות פרטי ליועץ בנקאי?",
     answer:
-      'יועץ בנקאי מייצג את הבנק ומציע את המוצרים של אותו בנק בלבד. יועץ פרטי כמוני מייצג אתכם - מנהל מו"מ מול כל הבנקים, משווה תנאים, ומשיג עבורכם את התמהיל הטוב ביותר. החסכון הוא לרוב עשרות עד מאות אלפי שקלים.',
+      'יועץ בנקאי מייצג את הבנק ומציע את המוצרים של אותו בנק בלבד. יועץ פרטי מייצג אתכם - מנהל מו"מ מול כל הבנקים, משווה תנאים, ומשיג את התמהיל המתאים ביותר עבורכם.',
   },
   {
     _id: "f4",
-    question: "כמה עולה ייעוץ משכנתאות אצל משה אדרי?",
+    question: "כמה עולה ייעוץ משכנתאות?",
     answer:
-      "הייעוץ הראשוני - חינם וללא התחייבות. רק לאחר שנציג לכם בדיוק כמה אפשר לחסוך, נדבר על תמורה. שיטת העבודה שלנו מבוססת על הצלחה - אם לא חסכנו לכם כסף, לא תשלמו.",
+      "הייעוץ הראשוני ללא עלות וללא התחייבות. רק לאחר שנציג את פוטנציאל החיסכון, נציג גם את התמורה למתן השירות.",
   },
   {
     _id: "f5",
-    question: "מהו איחוד הלוואות ואיך הוא יכול לעזור לי?",
+    question: "מהו איחוד הלוואות ואיך הוא יכול לעזור?",
     answer:
-      "איחוד הלוואות הוא תהליך שבו כל ההלוואות הקטנות שלכם (אשראי, הלוואות בנקאיות, חוב כרטיסי אשראי) הופכות להלוואה אחת בתנאים טובים יותר. התוצאה: החזר חודשי נמוך משמעותית, חיסכון בעלויות מימון, ושקט נפשי.",
+      "איחוד הלוואות הוא תהליך שבו מספר הלוואות (אשראי, הלוואות בנקאיות, חוב כרטיסי אשראי) הופכות להלוואה אחת בתנאים טובים יותר. התוצאה: החזר חודשי נמוך משמעותית, חיסכון בעלויות מימון, וסדר פיננסי.",
   },
   {
     _id: "f6",
     question: "כמה זמן לוקח התהליך?",
     answer:
-      "תלוי בסוג הבקשה. ייעוץ ראשוני - שיחה של 30 דקות. ניתוח תיק מלא - 2-3 ימי עבודה. אישור עקרוני - בדרך כלל תוך שבוע. סגירת תהליך מלא של מיחזור - 4-6 שבועות בממוצע. אנו מלווים אתכם בכל שלב.",
+      "ייעוץ ראשוני - שיחה של כ-30 דקות. ניתוח תיק מלא - 2-3 ימי עבודה. אישור עקרוני - בדרך כלל תוך שבוע. סגירת תהליך מלא של מיחזור - 4-6 שבועות בממוצע, בליווי בכל שלב.",
   },
 ];
 
@@ -68,21 +67,22 @@ export function FaqBlock({ data }: { data: FaqBlockData }) {
     data.items && data.items.length > 0 ? data.items : FALLBACK_FAQ;
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-midnight-50/30 to-white">
+    <section className="py-24 md:py-32 bg-midnight-50/30">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-12">
-          <div
-            data-gsap="fade-up"
-            className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-gold/10 text-gold-700 text-sm font-bold mb-4"
-          >
-            <HelpCircle className="size-4" />
-            {data.eyebrow || "שאלות נפוצות"}
-          </div>
+        <div className="text-center mb-14 max-w-2xl mx-auto">
+          {data.eyebrow && (
+            <div data-gsap="fade-up" className="mb-4">
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-gold-700">
+                <span className="size-1.5 rounded-full bg-gold" />
+                {data.eyebrow}
+              </span>
+            </div>
+          )}
           <h2
             data-gsap="fade-up"
-            className="text-3xl md:text-5xl font-black text-midnight leading-tight"
+            className="font-display text-display-lg text-midnight"
           >
-            {data.heading || "כל מה שרציתם לדעת"}
+            {data.heading || "שאלות נפוצות"}
           </h2>
         </div>
 
@@ -104,9 +104,11 @@ export function FaqBlock({ data }: { data: FaqBlockData }) {
         </div>
 
         <div data-gsap="fade-up" className="text-center mt-10">
-          <p className="text-midnight-600 mb-4">לא מצאת תשובה לשאלתך?</p>
-          <Button asChild variant="orange" size="lg">
-            <a href="#quick-form">צור קשר עכשיו</a>
+          <p className="text-midnight-500 text-sm mb-4">
+            לא מצאתם תשובה לשאלתכם?
+          </p>
+          <Button asChild variant="default" size="lg" className="rounded-full">
+            <a href="#quick-form">צרו קשר</a>
           </Button>
         </div>
       </div>

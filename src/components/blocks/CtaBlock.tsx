@@ -2,7 +2,6 @@
 
 import { Phone, MessageCircle, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { MagneticButton } from "@/components/animations/MagneticButton";
 import { SITE_CONFIG } from "@/lib/constants";
 import { buildWhatsAppLink, cn } from "@/lib/utils";
 
@@ -65,39 +64,36 @@ export function CtaBlock({ data }: { data: CtaBlockData }) {
             </p>
 
             <div className="flex flex-wrap gap-3 justify-center">
-              <MagneticButton strength={0.3}>
-                <Button
-                  asChild
-                  variant={style === "gold" ? "default" : "orange"}
-                  size="xl"
+              <Button
+                asChild
+                variant={style === "gold" ? "default" : "orange"}
+                size="xl"
+                className="rounded-full"
+              >
+                <a href={ctaHref}>
+                  {ctaLabel}
+                  <ArrowLeft className="size-5" />
+                </a>
+              </Button>
+              <Button asChild variant="whatsapp" size="xl" className="rounded-full">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <a href={ctaHref}>
-                    {ctaLabel}
-                    <ArrowLeft className="size-5" />
-                  </a>
-                </Button>
-              </MagneticButton>
-              <MagneticButton strength={0.3}>
-                <Button asChild variant="whatsapp" size="xl">
-                  <a
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <MessageCircle className="size-5" />
-                    שלח וואטסאפ
-                  </a>
-                </Button>
-              </MagneticButton>
+                  <MessageCircle className="size-5" />
+                  שלחו וואטסאפ
+                </a>
+              </Button>
               <Button
                 asChild
                 variant={style === "gold" ? "default" : "outline-gold"}
                 size="xl"
-                className={
-                  style !== "gold"
-                    ? "border-white text-white hover:bg-white hover:text-midnight"
-                    : ""
-                }
+                className={cn(
+                  "rounded-full",
+                  style !== "gold" &&
+                    "border-white/40 text-white hover:bg-white hover:text-midnight"
+                )}
               >
                 <a href={`tel:${SITE_CONFIG.phone}`}>
                   <Phone className="size-5" />

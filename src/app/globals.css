@@ -2,8 +2,8 @@
 @plugin "tailwindcss-animate";
 
 @theme {
-  --font-sans: "Google Sans Text", "Google Sans", "Heebo", system-ui, sans-serif;
-  --font-display: "Google Sans Display", "Google Sans", "Heebo", system-ui, sans-serif;
+  --font-sans: "Google Sans", "Heebo", system-ui, sans-serif;
+  --font-display: "Google Sans", "Heebo", system-ui, sans-serif;
 
   --color-midnight-50: #e8edf3;
   --color-midnight-100: #c5d0de;
@@ -73,13 +73,16 @@
     background-color: #ffffff;
     color: #0a192f;
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv01", "cv11";
+    font-optical-sizing: auto;
+    font-variation-settings: "GRAD" 0;
     letter-spacing: -0.011em;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    font-optical-sizing: auto;
     font-weight: 700;
+    font-variation-settings: "GRAD" 0;
     letter-spacing: -0.025em;
   }
 

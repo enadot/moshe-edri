@@ -8,8 +8,14 @@ import { HeroGsap } from "@/components/animations/HeroGsap";
 import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 import { SITE_CONFIG } from "@/lib/constants";
 import { buildWhatsAppLink } from "@/lib/utils";
+import { urlFor } from "@/sanity/lib/image";
 
 type Stat = { value: string; label: string };
+
+type SanityImage = {
+  asset?: { url?: string; _id?: string };
+  alt?: string;
+} | null;
 
 export type HeroBlockData = {
   _type: "heroBlock";
@@ -22,8 +28,20 @@ export type HeroBlockData = {
   ctaSecondary?: { label?: string };
   showQuickForm?: boolean;
   stats?: Stat[];
-  portraitSrc?: string;
+  portrait?: SanityImage;
 };
+
+function getPortraitSrc(portrait?: SanityImage): string {
+  if (portrait?.asset?._id) {
+    try {
+      return urlFor(portrait).width(900).height(1170).fit("max").url();
+    } catch {
+      // fall through
+    }
+  }
+  if (portrait?.asset?.url) return portrait.asset.url;
+  return SITE_CONFIG.portrait;
+}
 
 function parseStatValue(value: string) {
   const match = value.match(/^([^\d]*)(\d+(?:\.\d+)?)(.*)$/);
@@ -48,7 +66,7 @@ export function HeroBlock({ data }: { data: HeroBlockData }) {
     data.subheadline ||
     "מאות משפחות בישראל כבר חסכו מאות אלפי שקלים בעזרת ייעוץ מקצועי. בואו לבדוק כמה אתם יכולים לחסוך.";
   const badge = data.floatingBadge || "השבוע נחסך ללקוח: ₪270,000";
-  const portraitSrc = data.portraitSrc || SITE_CONFIG.portrait;
+  const portraitSrc = getPortraitSrc(data.portrait);
   const stats: Stat[] = data.stats?.length
     ? data.stats
     : [

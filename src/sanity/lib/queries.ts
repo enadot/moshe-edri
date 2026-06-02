@@ -10,6 +10,33 @@ export const PAGE_QUERY = groq`
       _type,
       _key,
       ...,
+      _type == "heroBlock" => {
+        ...,
+        portrait{
+          ...,
+          asset->{
+            _id,
+            url,
+            metadata { dimensions }
+          }
+        }
+      },
+      _type == "trustBarBlock" => {
+        ...,
+        logos[]{
+          _key,
+          name,
+          url,
+          image{
+            ...,
+            asset->{
+              _id,
+              url,
+              metadata { dimensions }
+            }
+          }
+        }
+      },
       _type == "servicesGridBlock" => {
         ...,
         "services": services[]->{
@@ -61,6 +88,33 @@ export const HOMEPAGE_QUERY = groq`
       _type,
       _key,
       ...,
+      _type == "heroBlock" => {
+        ...,
+        portrait{
+          ...,
+          asset->{
+            _id,
+            url,
+            metadata { dimensions }
+          }
+        }
+      },
+      _type == "trustBarBlock" => {
+        ...,
+        logos[]{
+          _key,
+          name,
+          url,
+          image{
+            ...,
+            asset->{
+              _id,
+              url,
+              metadata { dimensions }
+            }
+          }
+        }
+      },
       _type == "servicesGridBlock" => {
         ...,
         "services": services[]->{

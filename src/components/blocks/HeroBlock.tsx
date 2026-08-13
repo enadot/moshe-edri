@@ -85,11 +85,8 @@ export function HeroBlock({ data }: { data: HeroBlockData }) {
     <HeroGsap>
       <section className="relative overflow-hidden bg-[#0a192f] text-white -mt-20 pt-32 pb-16 md:pt-40 md:pb-24">
         <div
-          className="absolute inset-0 opacity-[0.07] pointer-events-none"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 50%, rgba(212,175,55,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(212,175,55,0.2) 0%, transparent 50%)",
-          }}
+          className="hero-mesh absolute inset-0 opacity-70 pointer-events-none"
+          aria-hidden
         />
         <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />
 

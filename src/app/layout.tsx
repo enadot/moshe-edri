@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { GsapProvider } from "@/components/animations/GsapProvider";
+import { AtlassianThemeProvider } from "@/components/AtlassianThemeProvider";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
@@ -124,12 +125,14 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased min-h-screen bg-white text-midnight">
-        <GsapProvider>
-          <Header />
-          <main className="pt-20">{children}</main>
-          <Footer />
-          <FloatingWhatsApp />
-        </GsapProvider>
+        <AtlassianThemeProvider>
+          <GsapProvider>
+            <Header />
+            <main className="pt-20">{children}</main>
+            <Footer />
+            <FloatingWhatsApp />
+          </GsapProvider>
+        </AtlassianThemeProvider>
         <Toaster position="top-center" richColors closeButton />
       </body>
     </html>
